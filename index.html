@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +15,7 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   width: 100%;
@@ -27,18 +26,8 @@ body {
   background: linear-gradient(135deg, #ffe1f1, #eadcff, #ffd6e9);
 }
 
-button, input {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
+button, input { font: inherit; }
+button { cursor: pointer; }
 
 .page {
   display: none;
@@ -47,12 +36,10 @@ img {
   padding: 35px 18px;
   align-items: center;
   justify-content: center;
-  animation: fadeIn 0.7s ease;
+  animation: fadeIn .7s ease;
 }
 
-.page.active {
-  display: flex;
-}
+.page.active { display: flex; }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(15px); }
@@ -64,10 +51,10 @@ img {
   max-width: 850px;
   min-width: 0;
   padding: clamp(22px, 5vw, 48px);
-  border: 1px solid rgba(255,255,255,0.8);
+  border: 1px solid rgba(255,255,255,.8);
   border-radius: 28px;
-  background: rgba(255,255,255,0.78);
-  box-shadow: 0 15px 45px rgba(135, 55, 125, 0.15);
+  background: rgba(255,255,255,.82);
+  box-shadow: 0 15px 45px rgba(135,55,125,.15);
   text-align: center;
 }
 
@@ -103,7 +90,7 @@ p {
 }
 
 .small-note {
-  font-size: 0.9rem;
+  font-size: .9rem;
   color: #95628f;
 }
 
@@ -129,7 +116,7 @@ p {
 
 .password-box input:focus {
   border-color: #ad54a2;
-  box-shadow: 0 0 0 3px rgba(173,84,162,0.12);
+  box-shadow: 0 0 0 3px rgba(173,84,162,.12);
 }
 
 .btn {
@@ -140,15 +127,15 @@ p {
   border: none;
   border-radius: 30px;
   color: white;
-  background: linear-gradient(135deg, #d85ab2, #9360d8);
+  background: linear-gradient(135deg,#d85ab2,#9360d8);
   font-weight: bold;
-  box-shadow: 0 6px 18px rgba(160,70,160,0.2);
-  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 6px 18px rgba(160,70,160,.2);
+  transition: transform .2s, box-shadow .2s;
 }
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 9px 22px rgba(160,70,160,0.28);
+  box-shadow: 0 9px 22px rgba(160,70,160,.28);
 }
 
 .btn:focus-visible {
@@ -175,15 +162,17 @@ p {
 .heart {
   position: fixed;
   bottom: -30px;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
   animation: floatUp 9s linear infinite;
-  opacity: 0.55;
+  opacity: .55;
 }
+
+.card { position: relative; z-index: 1; }
 
 @keyframes floatUp {
   from { transform: translateY(0) rotate(0deg); opacity: 0; }
-  15% { opacity: 0.6; }
+  15% { opacity: .6; }
   to { transform: translateY(-110vh) rotate(35deg); opacity: 0; }
 }
 
@@ -192,12 +181,12 @@ p {
   height: 4px;
   border-radius: 5px;
   margin: 20px auto;
-  background: linear-gradient(90deg, #f39acb, #a978e2);
+  background: linear-gradient(90deg,#f39acb,#a978e2);
 }
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  grid-template-columns: repeat(auto-fit,minmax(min(100%,150px),1fr));
   gap: 14px;
   margin-top: 25px;
   text-align: left;
@@ -208,17 +197,15 @@ p {
   padding: 8px;
   border-radius: 16px;
   background: white;
-  box-shadow: 0 5px 16px rgba(110,50,110,0.12);
+  box-shadow: 0 5px 16px rgba(110,50,110,.12);
   transform: rotate(-1deg);
 }
 
-.photo:nth-child(even) {
-  transform: rotate(1deg);
-}
+.photo:nth-child(even) { transform: rotate(1deg); }
 
 .photo img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: 11px;
   background: #f8dff0;
@@ -227,25 +214,23 @@ p {
 .photo figcaption {
   padding: 8px 2px 3px;
   text-align: center;
-  font-size: 0.85rem;
+  font-size: .85rem;
   color: #94558b;
   overflow-wrap: anywhere;
 }
 
 .letter {
-  padding: clamp(18px, 4vw, 30px);
+  padding: clamp(18px,4vw,30px);
   border-radius: 20px;
   background: #fff5fb;
   text-align: left;
 }
 
-.letter p {
-  margin-bottom: 15px;
-}
+.letter p { margin-bottom: 15px; }
 
 .promise-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+  grid-template-columns: repeat(auto-fit,minmax(min(100%,190px),1fr));
   gap: 13px;
   margin-top: 25px;
 }
@@ -265,14 +250,12 @@ p {
 
 .footer {
   margin-top: 25px;
-  font-size: 0.85rem;
+  font-size: .85rem;
   color: #9b6b96;
 }
 
-@media (max-width: 480px) {
-  .page {
-    padding: 18px 12px;
-  }
+@media(max-width:480px) {
+  .page { padding: 18px 12px; }
 
   .card {
     padding: 23px 16px;
@@ -286,21 +269,19 @@ p {
   }
 
   .gallery {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2,minmax(0,1fr));
     gap: 10px;
   }
 
-  .photo {
-    padding: 6px;
-  }
+  .photo { padding: 6px; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: .01ms !important;
   }
 }
 </style>
@@ -308,7 +289,7 @@ p {
 
 <body>
 
-<!-- PAGE 1: WELCOME PASSWORD -->
+<!-- WELCOME PASSWORD -->
 <section class="page active" id="gate0">
   <div class="card">
     <div class="emoji">💌🔐</div>
@@ -319,8 +300,7 @@ p {
       Flirt with Raghava to get the password! 😉💗
     </div>
     <div class="password-box">
-      <input id="pass0" type="password" placeholder="Enter your password"
-        autocomplete="off" aria-label="Welcome password">
+      <input id="pass0" type="password" placeholder="Enter your password" autocomplete="off">
       <button class="btn" onclick="unlock(0)">Unlock My Surprise 💜</button>
       <div class="error" id="error0" aria-live="polite"></div>
     </div>
@@ -328,7 +308,7 @@ p {
   </div>
 </section>
 
-<!-- PAGE 2: WELCOME -->
+<!-- WELCOME PAGE -->
 <section class="page" id="page0">
   <div class="card">
     <div class="emoji">🌷🦋💗</div>
@@ -342,7 +322,7 @@ p {
   </div>
 </section>
 
-<!-- PAGE 3: MEMORIES PASSWORD -->
+<!-- MEMORIES PASSWORD -->
 <section class="page" id="gate1">
   <div class="card">
     <div class="emoji">📸💞</div>
@@ -351,15 +331,14 @@ p {
       What is the little word that brings our story together? 💗
     </div>
     <div class="password-box">
-      <input id="pass1" type="password" placeholder="Your secret word"
-        autocomplete="off" aria-label="Memories password">
+      <input id="pass1" type="password" placeholder="Your secret word" autocomplete="off">
       <button class="btn" onclick="unlock(1)">Open Our Memories 📷</button>
       <div class="error" id="error1" aria-live="polite"></div>
     </div>
   </div>
 </section>
 
-<!-- PAGE 4: MEMORIES -->
+<!-- MEMORIES PAGE -->
 <section class="page" id="page1">
   <div class="card">
     <div class="emoji">🌸📷</div>
@@ -368,26 +347,26 @@ p {
     <p>Here are a few moments that deserve their own special place.</p>
 
     <div class="gallery">
-      <figure class="photo"><img src="photo1.jpg" alt="Memory 1"><figcaption>Memory 01 💗</figcaption></figure>
-      <figure class="photo"><img src="photo2.jpg" alt="Memory 2"><figcaption>Memory 02 🌷</figcaption></figure>
-      <figure class="photo"><img src="photo3.jpg" alt="Memory 3"><figcaption>Memory 03 ✨</figcaption></figure>
-      <figure class="photo"><img src="photo4.jpg" alt="Memory 4"><figcaption>Memory 04 🦋</figcaption></figure>
-      <figure class="photo"><img src="photo5.jpg" alt="Memory 5"><figcaption>Memory 05 💕</figcaption></figure>
-      <figure class="photo"><img src="photo6.jpg" alt="Memory 6"><figcaption>Memory 06 🌸</figcaption></figure>
-      <figure class="photo"><img src="photo7.jpg" alt="Memory 7"><figcaption>Memory 07 💗</figcaption></figure>
-      <figure class="photo"><img src="photo8.jpg" alt="Memory 8"><figcaption>Memory 08 🌷</figcaption></figure>
-      <figure class="photo"><img src="photo9.jpg" alt="Memory 9"><figcaption>Memory 09 ✨</figcaption></figure>
-      <figure class="photo"><img src="photo10.jpg" alt="Memory 10"><figcaption>Memory 10 🦋</figcaption></figure>
-      <figure class="photo"><img src="photo11.jpg" alt="Memory 11"><figcaption>Memory 11 💕</figcaption></figure>
-      <figure class="photo"><img src="photo12.jpg" alt="Memory 12"><figcaption>Memory 12 🌸</figcaption></figure>
-      <figure class="photo"><img src="photo13.jpg" alt="Memory 13"><figcaption>Memory 13 💗</figcaption></figure>
-      <figure class="photo"><img src="photo14.jpg" alt="Memory 14"><figcaption>Memory 14 🌷</figcaption></figure>
-      <figure class="photo"><img src="photo15.jpg" alt="Memory 15"><figcaption>Memory 15 ✨</figcaption></figure>
-      <figure class="photo"><img src="photo16.jpg" alt="Memory 16"><figcaption>Memory 16 🦋</figcaption></figure>
-      <figure class="photo"><img src="photo17.jpg" alt="Memory 17"><figcaption>Memory 17 💕</figcaption></figure>
-      <figure class="photo"><img src="photo18.jpg" alt="Memory 18"><figcaption>Memory 18 🌸</figcaption></figure>
-      <figure class="photo"><img src="photo19.jpg" alt="Memory 19"><figcaption>Memory 19 💗</figcaption></figure>
-      <figure class="photo"><img src="photo20.jpg" alt="Memory 20"><figcaption>Memory 20 🌷</figcaption></figure>
+      <figure class="photo"><img src="photo%20(1).jpeg" alt="Memory 1"><figcaption>Memory 01 💗</figcaption></figure>
+      <figure class="photo"><img src="photo%20(2).jpeg" alt="Memory 2"><figcaption>Memory 02 🌷</figcaption></figure>
+      <figure class="photo"><img src="photo%20(3).jpeg" alt="Memory 3"><figcaption>Memory 03 ✨</figcaption></figure>
+      <figure class="photo"><img src="photo%20(4).jpeg" alt="Memory 4"><figcaption>Memory 04 🦋</figcaption></figure>
+      <figure class="photo"><img src="photo%20(5).jpeg" alt="Memory 5"><figcaption>Memory 05 💕</figcaption></figure>
+      <figure class="photo"><img src="photo%20(6).jpeg" alt="Memory 6"><figcaption>Memory 06 🌸</figcaption></figure>
+      <figure class="photo"><img src="photo%20(7).jpeg" alt="Memory 7"><figcaption>Memory 07 💗</figcaption></figure>
+      <figure class="photo"><img src="photo%20(8).jpeg" alt="Memory 8"><figcaption>Memory 08 🌷</figcaption></figure>
+      <figure class="photo"><img src="photo%20(9).jpeg" alt="Memory 9"><figcaption>Memory 09 ✨</figcaption></figure>
+      <figure class="photo"><img src="photo%20(10).jpeg" alt="Memory 10"><figcaption>Memory 10 🦋</figcaption></figure>
+      <figure class="photo"><img src="photo%20(11).jpeg" alt="Memory 11"><figcaption>Memory 11 💕</figcaption></figure>
+      <figure class="photo"><img src="photo%20(12).jpeg" alt="Memory 12"><figcaption>Memory 12 🌸</figcaption></figure>
+      <figure class="photo"><img src="photo%20(13).jpeg" alt="Memory 13"><figcaption>Memory 13 💗</figcaption></figure>
+      <figure class="photo"><img src="photo%20(14).jpeg" alt="Memory 14"><figcaption>Memory 14 🌷</figcaption></figure>
+      <figure class="photo"><img src="photo%20(15).jpeg" alt="Memory 15"><figcaption>Memory 15 ✨</figcaption></figure>
+      <figure class="photo"><img src="photo%20(16).jpeg" alt="Memory 16"><figcaption>Memory 16 🦋</figcaption></figure>
+      <figure class="photo"><img src="photo%20(17).jpeg" alt="Memory 17"><figcaption>Memory 17 💕</figcaption></figure>
+      <figure class="photo"><img src="photo%20(18).jpeg" alt="Memory 18"><figcaption>Memory 18 🌸</figcaption></figure>
+      <figure class="photo"><img src="photo%20(19).jpeg" alt="Memory 19"><figcaption>Memory 19 💗</figcaption></figure>
+      <figure class="photo"><img src="photo%20(20).jpeg" alt="Memory 20"><figcaption>Memory 20 🌷</figcaption></figure>
     </div>
 
     <div class="divider"></div>
@@ -396,7 +375,7 @@ p {
   </div>
 </section>
 
-<!-- PAGE 5: SORRY PASSWORD -->
+<!-- SORRY PASSWORD -->
 <section class="page" id="gate2">
   <div class="card">
     <div class="emoji">💌🌹</div>
@@ -405,15 +384,14 @@ p {
       A little reminder: sometimes the most important words need to be read with an open heart. 💗
     </div>
     <div class="password-box">
-      <input id="pass2" type="password" placeholder="Enter the secret password"
-        autocomplete="off" aria-label="Sorry letter password">
+      <input id="pass2" type="password" placeholder="Enter the secret password" autocomplete="off">
       <button class="btn" onclick="unlock(2)">Read My Letter 💌</button>
       <div class="error" id="error2" aria-live="polite"></div>
     </div>
   </div>
 </section>
 
-<!-- PAGE 6: SORRY LETTER -->
+<!-- SORRY LETTER -->
 <section class="page" id="page2">
   <div class="card">
     <div class="emoji">🥺💗</div>
@@ -433,7 +411,7 @@ p {
   </div>
 </section>
 
-<!-- PAGE 7: MBBS PASSWORD -->
+<!-- MBBS PASSWORD -->
 <section class="page" id="gate3">
   <div class="card">
     <div class="emoji">🩺📚</div>
@@ -442,15 +420,14 @@ p {
       A special password for someone working towards a beautiful dream. 🌷
     </div>
     <div class="password-box">
-      <input id="pass3" type="password" placeholder="Enter your secret password"
-        autocomplete="off" aria-label="Future doctor password">
+      <input id="pass3" type="password" placeholder="Enter your secret password" autocomplete="off">
       <button class="btn" onclick="unlock(3)">Unlock Your Motivation 🩺</button>
       <div class="error" id="error3" aria-live="polite"></div>
     </div>
   </div>
 </section>
 
-<!-- PAGE 8: MBBS MOTIVATION -->
+<!-- MBBS MOTIVATION -->
 <section class="page" id="page3">
   <div class="card">
     <div class="emoji">🩺👩‍⚕️🌸</div>
@@ -487,7 +464,7 @@ p {
   </div>
 </section>
 
-<!-- PAGE 9: FINAL PASSWORD -->
+<!-- FINAL PASSWORD -->
 <section class="page" id="gate4">
   <div class="card">
     <div class="emoji">🎁💖✨</div>
@@ -496,15 +473,14 @@ p {
       The final surprise is waiting behind one special word. 💗
     </div>
     <div class="password-box">
-      <input id="pass4" type="password" placeholder="Your final password"
-        autocomplete="off" aria-label="Final surprise password">
+      <input id="pass4" type="password" placeholder="Your final password" autocomplete="off">
       <button class="btn" onclick="unlock(4)">Open The Final Surprise 🎀</button>
       <div class="error" id="error4" aria-live="polite"></div>
     </div>
   </div>
 </section>
 
-<!-- PAGE 10: FINAL SURPRISE -->
+<!-- FINAL SURPRISE -->
 <section class="page" id="page4">
   <div class="card">
     <div class="emoji">💗🌎🦋</div>
@@ -554,8 +530,7 @@ function hideAllPages() {
 
 function showPage(id) {
   hideAllPages();
-  const page = document.getElementById(id);
-  page.classList.add("active");
+  document.getElementById(id).classList.add("active");
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
@@ -585,7 +560,7 @@ function unlock(index) {
   }
 }
 
-// Allow Enter key to unlock each page.
+// Enter key also unlocks the page.
 for (let i = 0; i < passwords.length; i++) {
   const input = document.getElementById("pass" + i);
 
@@ -596,11 +571,11 @@ for (let i = 0; i < passwords.length; i++) {
   });
 }
 
-// Floating hearts in the background.
+// Floating hearts.
 function createHeart() {
   const heart = document.createElement("div");
   heart.className = "heart";
-  heart.textContent = ["💗", "💕", "💜", "🌸", "✨"][
+  heart.textContent = ["💗","💕","💜","🌸","✨"][
     Math.floor(Math.random() * 5)
   ];
 
