@@ -1,0 +1,622 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f8c8e8">
+<title>For Kalaiyarasi 💗</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  color: #54204f;
+  background: linear-gradient(135deg, #ffe1f1, #eadcff, #ffd6e9);
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.page {
+  display: none;
+  width: 100%;
+  min-height: 100vh;
+  padding: 35px 18px;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.7s ease;
+}
+
+.page.active {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+  width: 100%;
+  max-width: 850px;
+  min-width: 0;
+  padding: clamp(22px, 5vw, 48px);
+  border: 1px solid rgba(255,255,255,0.8);
+  border-radius: 28px;
+  background: rgba(255,255,255,0.78);
+  box-shadow: 0 15px 45px rgba(135, 55, 125, 0.15);
+  text-align: center;
+}
+
+h1 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  color: #a13c91;
+  margin-bottom: 15px;
+  overflow-wrap: anywhere;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.3rem);
+  color: #a13c91;
+  margin-bottom: 18px;
+  overflow-wrap: anywhere;
+}
+
+h3 {
+  color: #a13c91;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: clamp(1rem, 2.5vw, 1.13rem);
+  line-height: 1.8;
+  margin: 12px 0;
+  overflow-wrap: anywhere;
+}
+
+.emoji {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  margin-bottom: 15px;
+}
+
+.small-note {
+  font-size: 0.9rem;
+  color: #95628f;
+}
+
+.password-box {
+  width: 100%;
+  max-width: 390px;
+  margin: 22px auto 10px;
+}
+
+.password-box input {
+  width: 100%;
+  min-width: 0;
+  padding: 15px;
+  border: 2px solid #e9b6dc;
+  border-radius: 15px;
+  outline: none;
+  background: #fff8fd;
+  color: #63265f;
+  text-align: center;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.password-box input:focus {
+  border-color: #ad54a2;
+  box-shadow: 0 0 0 3px rgba(173,84,162,0.12);
+}
+
+.btn {
+  display: inline-block;
+  max-width: 100%;
+  margin: 12px 5px 0;
+  padding: 13px 25px;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  background: linear-gradient(135deg, #d85ab2, #9360d8);
+  font-weight: bold;
+  box-shadow: 0 6px 18px rgba(160,70,160,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 22px rgba(160,70,160,0.28);
+}
+
+.btn:focus-visible {
+  outline: 3px solid #743a9d;
+  outline-offset: 3px;
+}
+
+.error {
+  min-height: 25px;
+  color: #c13b76;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.challenge {
+  color: #9a4b91;
+  font-weight: bold;
+  background: #fff0fa;
+  border-radius: 15px;
+  padding: 15px;
+  margin: 18px 0;
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  z-index: -1;
+  pointer-events: none;
+  animation: floatUp 9s linear infinite;
+  opacity: 0.55;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0) rotate(0deg); opacity: 0; }
+  15% { opacity: 0.6; }
+  to { transform: translateY(-110vh) rotate(35deg); opacity: 0; }
+}
+
+.divider {
+  width: 90px;
+  height: 4px;
+  border-radius: 5px;
+  margin: 20px auto;
+  background: linear-gradient(90deg, #f39acb, #a978e2);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  gap: 14px;
+  margin-top: 25px;
+  text-align: left;
+}
+
+.photo {
+  min-width: 0;
+  padding: 8px;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 5px 16px rgba(110,50,110,0.12);
+  transform: rotate(-1deg);
+}
+
+.photo:nth-child(even) {
+  transform: rotate(1deg);
+}
+
+.photo img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 11px;
+  background: #f8dff0;
+}
+
+.photo figcaption {
+  padding: 8px 2px 3px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #94558b;
+  overflow-wrap: anywhere;
+}
+
+.letter {
+  padding: clamp(18px, 4vw, 30px);
+  border-radius: 20px;
+  background: #fff5fb;
+  text-align: left;
+}
+
+.letter p {
+  margin-bottom: 15px;
+}
+
+.promise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+  gap: 13px;
+  margin-top: 25px;
+}
+
+.promise {
+  min-width: 0;
+  padding: 18px;
+  border-radius: 17px;
+  background: #fff0fa;
+}
+
+.promise span {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.footer {
+  margin-top: 25px;
+  font-size: 0.85rem;
+  color: #9b6b96;
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 18px 12px;
+  }
+
+  .card {
+    padding: 23px 16px;
+    border-radius: 22px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 290px;
+    margin: 9px auto 0;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .photo {
+    padding: 6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1: WELCOME PASSWORD -->
+<section class="page active" id="gate0">
+  <div class="card">
+    <div class="emoji">💌🔐</div>
+    <h1>A Little Surprise!</h1>
+    <p>Someone made something special just for you, Kalaiyarasi. 💗</p>
+    <div class="divider"></div>
+    <div class="challenge">
+      Flirt with Raghava to get the password! 😉💗
+    </div>
+    <div class="password-box">
+      <input id="pass0" type="password" placeholder="Enter your password"
+        autocomplete="off" aria-label="Welcome password">
+      <button class="btn" onclick="unlock(0)">Unlock My Surprise 💜</button>
+      <div class="error" id="error0" aria-live="polite"></div>
+    </div>
+    <div class="footer">Made with care, just for you ✨</div>
+  </div>
+</section>
+
+<!-- PAGE 2: WELCOME -->
+<section class="page" id="page0">
+  <div class="card">
+    <div class="emoji">🌷🦋💗</div>
+    <h1>Hey, Kalaiyarasi!</h1>
+    <p>Welcome to your little corner of happiness.</p>
+    <p>This tiny website is filled with memories, heartfelt words, encouragement and a surprise made especially for you.</p>
+    <div class="divider"></div>
+    <h2>Ready for our little journey?</h2>
+    <p>One page at a time. One little surprise at a time. 💕</p>
+    <button class="btn" onclick="showGate(1)">Let's Begin ✨</button>
+  </div>
+</section>
+
+<!-- PAGE 3: MEMORIES PASSWORD -->
+<section class="page" id="gate1">
+  <div class="card">
+    <div class="emoji">📸💞</div>
+    <h2>Our Memories Await!</h2>
+    <div class="challenge">
+      What is the little word that brings our story together? 💗
+    </div>
+    <div class="password-box">
+      <input id="pass1" type="password" placeholder="Your secret word"
+        autocomplete="off" aria-label="Memories password">
+      <button class="btn" onclick="unlock(1)">Open Our Memories 📷</button>
+      <div class="error" id="error1" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 4: MEMORIES -->
+<section class="page" id="page1">
+  <div class="card">
+    <div class="emoji">🌸📷</div>
+    <h1>Our Little Memories</h1>
+    <p>Some moments become memories. Some memories become little treasures. 💗</p>
+    <p>Here are a few moments that deserve their own special place.</p>
+
+    <div class="gallery">
+      <figure class="photo"><img src="photo1.jpg" alt="Memory 1"><figcaption>Memory 01 💗</figcaption></figure>
+      <figure class="photo"><img src="photo2.jpg" alt="Memory 2"><figcaption>Memory 02 🌷</figcaption></figure>
+      <figure class="photo"><img src="photo3.jpg" alt="Memory 3"><figcaption>Memory 03 ✨</figcaption></figure>
+      <figure class="photo"><img src="photo4.jpg" alt="Memory 4"><figcaption>Memory 04 🦋</figcaption></figure>
+      <figure class="photo"><img src="photo5.jpg" alt="Memory 5"><figcaption>Memory 05 💕</figcaption></figure>
+      <figure class="photo"><img src="photo6.jpg" alt="Memory 6"><figcaption>Memory 06 🌸</figcaption></figure>
+      <figure class="photo"><img src="photo7.jpg" alt="Memory 7"><figcaption>Memory 07 💗</figcaption></figure>
+      <figure class="photo"><img src="photo8.jpg" alt="Memory 8"><figcaption>Memory 08 🌷</figcaption></figure>
+      <figure class="photo"><img src="photo9.jpg" alt="Memory 9"><figcaption>Memory 09 ✨</figcaption></figure>
+      <figure class="photo"><img src="photo10.jpg" alt="Memory 10"><figcaption>Memory 10 🦋</figcaption></figure>
+      <figure class="photo"><img src="photo11.jpg" alt="Memory 11"><figcaption>Memory 11 💕</figcaption></figure>
+      <figure class="photo"><img src="photo12.jpg" alt="Memory 12"><figcaption>Memory 12 🌸</figcaption></figure>
+      <figure class="photo"><img src="photo13.jpg" alt="Memory 13"><figcaption>Memory 13 💗</figcaption></figure>
+      <figure class="photo"><img src="photo14.jpg" alt="Memory 14"><figcaption>Memory 14 🌷</figcaption></figure>
+      <figure class="photo"><img src="photo15.jpg" alt="Memory 15"><figcaption>Memory 15 ✨</figcaption></figure>
+      <figure class="photo"><img src="photo16.jpg" alt="Memory 16"><figcaption>Memory 16 🦋</figcaption></figure>
+      <figure class="photo"><img src="photo17.jpg" alt="Memory 17"><figcaption>Memory 17 💕</figcaption></figure>
+      <figure class="photo"><img src="photo18.jpg" alt="Memory 18"><figcaption>Memory 18 🌸</figcaption></figure>
+      <figure class="photo"><img src="photo19.jpg" alt="Memory 19"><figcaption>Memory 19 💗</figcaption></figure>
+      <figure class="photo"><img src="photo20.jpg" alt="Memory 20"><figcaption>Memory 20 🌷</figcaption></figure>
+    </div>
+
+    <div class="divider"></div>
+    <p>Every picture has a little story. And every story is worth remembering. 💜</p>
+    <button class="btn" onclick="showGate(2)">Next Surprise 💌</button>
+  </div>
+</section>
+
+<!-- PAGE 5: SORRY PASSWORD -->
+<section class="page" id="gate2">
+  <div class="card">
+    <div class="emoji">💌🌹</div>
+    <h2>A Letter From My Heart</h2>
+    <div class="challenge">
+      A little reminder: sometimes the most important words need to be read with an open heart. 💗
+    </div>
+    <div class="password-box">
+      <input id="pass2" type="password" placeholder="Enter the secret password"
+        autocomplete="off" aria-label="Sorry letter password">
+      <button class="btn" onclick="unlock(2)">Read My Letter 💌</button>
+      <div class="error" id="error2" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 6: SORRY LETTER -->
+<section class="page" id="page2">
+  <div class="card">
+    <div class="emoji">🥺💗</div>
+    <h1>I'm Sorry, Kalaiyarasi</h1>
+    <div class="divider"></div>
+    <div class="letter">
+      <p>Dear Kalaiyarasi,</p>
+      <p>I want to sincerely apologise for the times I hurt you, upset you or made you feel unheard.</p>
+      <p>I understand that my words and actions matter. I should have been more thoughtful, patient and understanding.</p>
+      <p>I'm not writing this to force you to forgive me or to make you forget how you feel. Your feelings matter, and you deserve the time and space you need.</p>
+      <p>I want to learn from my mistakes and become better through my actions, not just my words.</p>
+      <p>Thank you for the good memories and the moments that have meant so much.</p>
+      <p>I'm truly sorry. 💗</p>
+      <p>With care,<br><strong>Raghava</strong></p>
+    </div>
+    <button class="btn" onclick="showGate(3)">One More Page 🩺</button>
+  </div>
+</section>
+
+<!-- PAGE 7: MBBS PASSWORD -->
+<section class="page" id="gate3">
+  <div class="card">
+    <div class="emoji">🩺📚</div>
+    <h2>Future Doctor Unlock!</h2>
+    <div class="challenge">
+      A special password for someone working towards a beautiful dream. 🌷
+    </div>
+    <div class="password-box">
+      <input id="pass3" type="password" placeholder="Enter your secret password"
+        autocomplete="off" aria-label="Future doctor password">
+      <button class="btn" onclick="unlock(3)">Unlock Your Motivation 🩺</button>
+      <div class="error" id="error3" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 8: MBBS MOTIVATION -->
+<section class="page" id="page3">
+  <div class="card">
+    <div class="emoji">🩺👩‍⚕️🌸</div>
+    <h1>Future Doctor Kalaiyarasi</h1>
+    <p>Your dream is worth working for. And I hope you never forget how capable you are of learning, growing and getting through difficult days.</p>
+
+    <div class="promise-grid">
+      <div class="promise">
+        <span>📚</span>
+        <h3>One Step at a Time</h3>
+        <p>You don't have to figure everything out in one day. Keep learning, one topic at a time.</p>
+      </div>
+      <div class="promise">
+        <span>🌱</span>
+        <h3>Keep Growing</h3>
+        <p>One exam or one result cannot define your entire journey. Every experience can teach you something.</p>
+      </div>
+      <div class="promise">
+        <span>☕</span>
+        <h3>Take Your Breaks</h3>
+        <p>Rest matters too. Give yourself time to recharge and take care of yourself.</p>
+      </div>
+      <div class="promise">
+        <span>✨</span>
+        <h3>Believe in Your Journey</h3>
+        <p>Be proud of the effort you put in, even on the days when progress feels slow.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <h2>One day, Doctor!</h2>
+    <p>I hope you look back at these days and feel proud of how far you have come. Keep going at your own pace. 💜</p>
+    <button class="btn" onclick="showGate(4)">The Final Surprise 🎁</button>
+  </div>
+</section>
+
+<!-- PAGE 9: FINAL PASSWORD -->
+<section class="page" id="gate4">
+  <div class="card">
+    <div class="emoji">🎁💖✨</div>
+    <h2>One Last Little Secret...</h2>
+    <div class="challenge">
+      The final surprise is waiting behind one special word. 💗
+    </div>
+    <div class="password-box">
+      <input id="pass4" type="password" placeholder="Your final password"
+        autocomplete="off" aria-label="Final surprise password">
+      <button class="btn" onclick="unlock(4)">Open The Final Surprise 🎀</button>
+      <div class="error" id="error4" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 10: FINAL SURPRISE -->
+<section class="page" id="page4">
+  <div class="card">
+    <div class="emoji">💗🌎🦋</div>
+    <h1>A Little Message For You</h1>
+    <div class="divider"></div>
+    <p>Kalaiyarasi, I hope this little website brought a smile to your day.</p>
+    <p>You deserve kindness, happiness, respect and every opportunity to chase your dreams.</p>
+    <p>Thank you for being you. Keep shining, keep learning and keep believing in yourself.</p>
+    <div class="emoji">🌷💜🌸</div>
+    <h2>All the best, Future Doctor!</h2>
+    <p>With lots of good wishes,</p>
+    <h2>— Raghava 💌</h2>
+    <div class="footer">A little website made with care. End of the surprise ✨</div>
+  </div>
+</section>
+
+<script>
+const passwords = [
+  "0317",
+  "OURSTORY",
+  "READMYHEART",
+  "FUTUREDOC",
+  "FOREVERUS"
+];
+
+const gateMessages = [
+  "gate0",
+  "gate1",
+  "gate2",
+  "gate3",
+  "gate4"
+];
+
+const pageMessages = [
+  "page0",
+  "page1",
+  "page2",
+  "page3",
+  "page4"
+];
+
+function hideAllPages() {
+  document.querySelectorAll(".page").forEach(function(page) {
+    page.classList.remove("active");
+  });
+}
+
+function showPage(id) {
+  hideAllPages();
+  const page = document.getElementById(id);
+  page.classList.add("active");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function showGate(index) {
+  const input = document.getElementById("pass" + index);
+  const error = document.getElementById("error" + index);
+
+  input.value = "";
+  error.textContent = "";
+  showPage(gateMessages[index]);
+  input.focus();
+}
+
+function unlock(index) {
+  const input = document.getElementById("pass" + index);
+  const error = document.getElementById("error" + index);
+
+  const entered = input.value.trim().toUpperCase();
+
+  if (entered === passwords[index]) {
+    error.textContent = "";
+    showPage(pageMessages[index]);
+  } else {
+    error.textContent = "Oops! That's not the password. Try again 💗";
+    input.value = "";
+    input.focus();
+  }
+}
+
+// Allow Enter key to unlock each page.
+for (let i = 0; i < passwords.length; i++) {
+  const input = document.getElementById("pass" + i);
+
+  input.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      unlock(i);
+    }
+  });
+}
+
+// Floating hearts in the background.
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.textContent = ["💗", "💕", "💜", "🌸", "✨"][
+    Math.floor(Math.random() * 5)
+  ];
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (14 + Math.random() * 17) + "px";
+  heart.style.animationDuration = (7 + Math.random() * 5) + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(function() {
+    heart.remove();
+  }, 13000);
+}
+
+setInterval(createHeart, 850);
+</script>
+
+</body>
+</html>
